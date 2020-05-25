@@ -51,8 +51,9 @@ body {
           height: 3rem;
           width: 30%;
           margin-left: 2rem;
+          padding: 0 0.5rem;
           border: none;
-          border-bottom: 1px solid black;
+          border-bottom: solid 1px black;
         }
 
         #button {
@@ -70,6 +71,11 @@ body {
           }
         }
       }
+    }
+
+    .output {
+      margin-top: 3rem;
+      font-size: 3rem;
     }
   }
 }
