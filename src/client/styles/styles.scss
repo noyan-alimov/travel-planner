@@ -79,18 +79,21 @@ body {
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-direction: row;
+      flex-direction: column;
       margin-top: 3rem;
 
       .info {
         font-size: 1.5rem;
-        width: 30%;
+        height: 3rem;
+        width: 100%;
       }
 
       .image {
         height: 50rem;
+        width: 100%;
         background-size: cover;
-        width: 70%;
+        background-position: center center;
+        background-repeat: no-repeat;
       }
     }
   }

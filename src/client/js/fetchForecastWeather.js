@@ -4,18 +4,15 @@ export const fetchForecastWeather = (apiKey, city) => {
   )
     .then(res => res.json())
     .then(data => {
-      console.log(data.data);
       const output = document.querySelector('.info');
       const forecastDays = data.data;
+      let tempOfDays = [];
       forecastDays.forEach(day => {
-        console.log(day.temp);
-        const dayTemp = document.createElement('p');
-        const dateTemp = document.createElement('p');
-        dayTemp.textContent = `Temperature: ${day.temp}°C`;
-        dateTemp.textContent = `Date: ${day.valid_date}`;
-        dateTemp.style.marginBottom = '2.5rem';
-        output.appendChild(dayTemp);
-        output.appendChild(dateTemp);
+        tempOfDays.push(day.temp);
       });
+      const averageTemp = arrAvg(tempOfDays);
+      output.innerHTML = `Approximate Temperature: ${averageTemp}°C`;
     });
 };
+
+const arrAvg = arr => arr.reduce((a, b) => a + b, 0) / arr.length;
