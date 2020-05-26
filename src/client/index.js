@@ -8,10 +8,11 @@ const form = document.querySelector('.form');
 form.addEventListener('submit', e => {
   e.preventDefault();
 
-  fetch('http://localhost:8080/getApiKey')
+  fetch('http://localhost:8080/getApiKeys')
     .then(res => res.json())
     .then(data => {
-      const apiKey = data;
+      const apiWeather = data.apiWeather;
+      const apiImage = data.apiImage;
 
       // Getting and comparing between the user input date and today's date
       const city = document.querySelector('#city').value;
@@ -25,13 +26,13 @@ form.addEventListener('submit', e => {
       today = yyyy + '-' + mm + '-' + dd;
 
       if (date === today) {
-        fetchCurrentWeather(apiKey, city);
-        fetchImage(city);
+        fetchCurrentWeather(apiWeather, city);
+        fetchImage(apiImage, city);
       } else if (date < today) {
         alert("Please enter today's or future date");
       } else {
-        fetchForecastWeather(apiKey, city);
-        fetchImage(city);
+        fetchForecastWeather(apiWeather, city);
+        fetchImage(apiImage, city);
       }
     });
 });

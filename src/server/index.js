@@ -15,10 +15,14 @@ app.use(express.json());
 //   res.sendFile(path.join(__dirname, '../../dist', 'index.html'));
 // });
 
-const apiKey = process.env.API_WEATHERBIT;
+const apiWeather = process.env.API_WEATHERBIT;
+const apiImage = process.env.API_PIXABAY;
 
-app.get('/getApiKey', (req, res) => {
-  res.json(apiKey);
+app.get('/getApiKeys', (req, res) => {
+  res.json({
+    apiWeather,
+    apiImage
+  });
 });
 
 app.listen(8080, () => {
