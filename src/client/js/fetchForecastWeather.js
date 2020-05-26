@@ -1,6 +1,6 @@
 export const fetchForecastWeather = (apiKey, city) => {
   fetch(
-    `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${apiKey}`
+    `http://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${apiKey}`
   )
     .then(res => res.json())
     .then(data => {
