@@ -1,6 +1,7 @@
 import './styles/styles.scss';
 import { fetchCurrentWeather } from './js/fetchCurrentWeather';
 import { fetchForecastWeather } from './js/fetchForecastWeather';
+import { fetchImage } from './js/fetchImage';
 
 const form = document.querySelector('.form');
 
@@ -25,10 +26,12 @@ form.addEventListener('submit', e => {
 
       if (date === today) {
         fetchCurrentWeather(apiKey, city);
+        fetchImage(city);
       } else if (date < today) {
         alert("Please enter today's or future date");
       } else {
         fetchForecastWeather(apiKey, city);
+        fetchImage(city);
       }
     });
 });

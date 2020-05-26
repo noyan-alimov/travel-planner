@@ -5,7 +5,7 @@ export const fetchForecastWeather = (apiKey, city) => {
     .then(res => res.json())
     .then(data => {
       console.log(data.data);
-      const output = document.querySelector('.output');
+      const output = document.querySelector('.info');
       const forecastDays = data.data;
       forecastDays.forEach(day => {
         console.log(day.temp);
