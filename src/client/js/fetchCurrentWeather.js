@@ -3,6 +3,6 @@ export const fetchCurrentWeather = (apiKey, city) => {
     .then(res => res.json())
     .then(data => {
       const output = document.querySelector('.info');
-      output.innerHTML = `Temperature: ${data.data[0].temp}°C`;
+      output.innerHTML = `Weather: ${data.data[0].temp}°C <br/> ${data.data[0].weather.description}`;
     });
 };

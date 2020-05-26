@@ -1,18 +1,13 @@
-export const fetchForecastWeather = (apiKey, city) => {
+export const fetchForecastWeather = (apiKey, city, day) => {
   fetch(
-    `http://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${apiKey}`
+    `http://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${apiKey}&days=${
+      day + 1
+    }`
   )
     .then(res => res.json())
     .then(data => {
       const output = document.querySelector('.info');
-      const forecastDays = data.data;
-      let tempOfDays = [];
-      forecastDays.forEach(day => {
-        tempOfDays.push(day.temp);
-      });
-      const averageTemp = arrAvg(tempOfDays);
-      output.innerHTML = `Approximate Temperature: ${averageTemp}°C`;
+      output.innerHTML = `Weather: ${data.data[day].temp}°C <br/>
+      ${data.data[day].weather.description}`;
     });
 };
-
-const arrAvg = arr => arr.reduce((a, b) => a + b, 0) / arr.length;

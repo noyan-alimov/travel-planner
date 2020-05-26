@@ -2,6 +2,7 @@ import './styles/styles.scss';
 import { fetchCurrentWeather } from './js/fetchCurrentWeather';
 import { fetchForecastWeather } from './js/fetchForecastWeather';
 import { fetchImage } from './js/fetchImage';
+import { calculateDayDifference } from './js/calculateDayDifference';
 
 const form = document.querySelector('.form');
 
@@ -25,13 +26,16 @@ form.addEventListener('submit', e => {
 
       today = yyyy + '-' + mm + '-' + dd;
 
+      const daysDifference = calculateDayDifference(date, today);
+      console.log(daysDifference);
+
       if (date === today) {
         fetchCurrentWeather(apiWeather, city);
         fetchImage(apiImage, city);
       } else if (date < today) {
         alert("Please enter today's or future date");
       } else {
-        fetchForecastWeather(apiWeather, city);
+        fetchForecastWeather(apiWeather, city, daysDifference);
         fetchImage(apiImage, city);
       }
     });
