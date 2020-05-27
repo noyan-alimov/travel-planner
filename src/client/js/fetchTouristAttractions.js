@@ -24,6 +24,7 @@ export const fetchTouristAttractions = city => {
         const rating = document.createElement('td');
         name.innerHTML = attraction.name;
         rating.innerHTML = attraction.rating;
+        rating.style.textAlign = 'right';
         attractionInfoContainer.appendChild(name);
         attractionInfoContainer.appendChild(rating);
         table.appendChild(attractionInfoContainer);
