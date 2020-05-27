@@ -90,11 +90,17 @@ body {
       }
 
       .image {
-        height: 50rem;
+        height: 37rem;
         width: 100%;
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
+      }
+
+      .attractions {
+        height: 7rem;
+        width: 100%;
+        font-size: 1.2rem;
       }
     }
   }

@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const cors = require('cors');
+const fetch = require('node-fetch');
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -17,12 +18,21 @@ app.use(express.json());
 
 const apiWeather = process.env.API_WEATHERBIT;
 const apiImage = process.env.API_PIXABAY;
+const apiAttractions = process.env.API_GOOGLE;
 
 app.get('/getApiKeys', (req, res) => {
   res.json({
     apiWeather,
     apiImage
   });
+});
+
+app.post('/touristAttractions', async (req, res) => {
+  const response = await fetch(
+    `https://maps.googleapis.com/maps/api/place/textsearch/json?query=attraction+in+${req.body.city}&key=${apiAttractions}`
+  );
+  const data = await response.json();
+  res.json(data);
 });
 
 app.listen(8080, () => {
