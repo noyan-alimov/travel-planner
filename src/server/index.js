@@ -10,22 +10,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// app.use(express.static(path.join(__dirname, '../../dist')));
+app.use(express.static(path.join(__dirname, '../../dist')));
 
-// app.get('*', function (req, res) {
-//   res.sendFile(path.join(__dirname, '../../dist', 'index.html'));
-// });
-
-const apiWeather = process.env.API_WEATHERBIT;
-const apiImage = process.env.API_PIXABAY;
-const apiAttractions = process.env.API_GOOGLE;
-
-app.get('/getApiKeys', (req, res) => {
-  res.json({
-    apiWeather,
-    apiImage
-  });
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../dist', 'index.html'));
 });
+
+const apiAttractions = process.env.API_GOOGLE;
 
 app.post('/touristAttractions', async (req, res) => {
   const response = await fetch(
