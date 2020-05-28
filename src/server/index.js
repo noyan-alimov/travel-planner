@@ -26,6 +26,4 @@ app.post('/touristAttractions', async (req, res) => {
   res.json(data);
 });
 
-app.listen(8080, () => {
-  console.log('App listening on port 8080!');
-});
+module.exports = app;
