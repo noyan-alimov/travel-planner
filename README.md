@@ -32,10 +32,10 @@ npm start
 
 ## API(s) used
 
-1. (http://www.geonames.org/)[GeoNames] - To input the name of the city and output latitude and longitude
-1. (https://www.weatherbit.io/)[WeatherBit] - To input latitude and longitude and output weather information
-1. (https://pixabay.com/)[Pixabay] - To input the name of the city and output an image of it
-1. (https://developers.google.com/places/web-service/search)[Google Maps] - To input the name of the city and output top tourist attractions
+1. [GeoNames](http://www.geonames.org/) - To input the name of the city and output latitude and longitude
+1. [WeatherBit](https://www.weatherbit.io/) - To input latitude and longitude and output weather information
+1. [Pixabay](https://pixabay.com/) - To input the name of the city and output an image of it
+1. [Google Maps](https://developers.google.com/places/web-service/search) - To input the name of the city and output top tourist attractions
 
 ## Built with
 
