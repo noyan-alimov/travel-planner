@@ -1,3 +1,5 @@
+const output = document.querySelector('.info');
+
 export const fetchForecastWeather = (apiKey, lat, lng, day) => {
   fetch(
     `http://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lng}&key=${apiKey}&days=${
@@ -6,8 +8,12 @@ export const fetchForecastWeather = (apiKey, lat, lng, day) => {
   )
     .then(res => res.json())
     .then(data => {
-      const output = document.querySelector('.info');
-      output.innerHTML = `Weather: ${data.data[day].temp}°C <br/>
-      ${data.data[day].weather.description}`;
+      data.data.forEach(weatherDay => {
+        const dayDiv = document.createElement('div');
+        dayDiv.innerHTML = `Date: ${weatherDay.datetime} <br/>
+        Weather: ${weatherDay.temp}°C <br/>
+        ${weatherDay.weather.description}`;
+        output.appendChild(dayDiv);
+      });
     });
 };
