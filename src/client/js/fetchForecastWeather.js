@@ -1,6 +1,6 @@
-export const fetchForecastWeather = (apiKey, city, day) => {
+export const fetchForecastWeather = (apiKey, lat, lng, day) => {
   fetch(
-    `http://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${apiKey}&days=${
+    `http://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lng}&key=${apiKey}&days=${
       day + 1
     }`
   )
